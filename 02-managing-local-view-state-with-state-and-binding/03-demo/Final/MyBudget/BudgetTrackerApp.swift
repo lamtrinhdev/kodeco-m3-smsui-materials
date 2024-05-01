@@ -68,30 +68,19 @@ struct ContentView: View {
         }
       }
       .navigationTitle("Budget Tracker")
-      .navigationBarItems(trailing: AddButton(showingAddView: $showingAddView))
+      .navigationBarItems(trailing: Button(action: {
+        self.showingAddView = true
+      }, label: {
+        Image(systemName: "plus")
+      }))
       .sheet(isPresented: $showingAddView) {
         AddFinancialEntryView(
-          financialEntries: $entries,
-          showingAddView: $showingAddView)
+          showingAddView: $showingAddView,
+          financialEntries: $entries)
       }
     }
   }
 }
-
-struct AddButton: View {
-  @Binding var showingAddView: Bool
-
-  var body: some View {
-    Button(action: openAddFinancialEntryView) {
-      Image(systemName: "plus")
-    }
-  }
-
-  func openAddFinancialEntryView() {
-    showingAddView = true
-  }
-}
-
 
 struct FinancialEntryRow: View {
   let entry: FinancialEntry

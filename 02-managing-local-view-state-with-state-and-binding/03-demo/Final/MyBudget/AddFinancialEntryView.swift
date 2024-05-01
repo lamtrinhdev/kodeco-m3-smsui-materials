@@ -33,16 +33,17 @@
 import SwiftUI
 
 struct AddFinancialEntryView: View {
-  @Binding var financialEntries: [FinancialEntry]
-  @Binding var showingAddView: Bool
   @State private var amount: Double = 0
   @State private var category: String = ""
   @State private var isExpense = true
+  @Binding var showingAddView: Bool
+  @Binding var financialEntries: [FinancialEntry]
 
   var body: some View {
     NavigationStack {
       Form {
         TextField("Amount", value: $amount, format: .number)
+          .keyboardType(.decimalPad)
         TextField("Category", text: $category)
         Toggle(isOn: $isExpense) {
           Text("Is Expense")
@@ -74,13 +75,13 @@ struct AddFinancialEntryView: View {
 
 #Preview {
   struct AddFinancialEntryViewPreview: View {
-    @State private var financialEntries: [FinancialEntry] = []
     @State private var showingAddView = true
+    @State private var financialEntries: [FinancialEntry] = []
 
     var body: some View {
       AddFinancialEntryView(
-        financialEntries: $financialEntries,
-        showingAddView: $showingAddView)
+        showingAddView: $showingAddView,
+        financialEntries: $financialEntries)
     }
   }
 

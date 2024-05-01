@@ -34,8 +34,17 @@ import SwiftUI
 
 struct AddFinancialEntryView: View {
   var body: some View {
-    // TODO: Implement body.
-    EmptyView()
+    NavigationStack {
+      Form {
+        // TODO: Implement form.
+      }
+      .scrollDisabled(true)
+      .navigationTitle("Add Entry")
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
+        // TODO: Implement toolbar.
+      }
+    }
   }
 }
 
