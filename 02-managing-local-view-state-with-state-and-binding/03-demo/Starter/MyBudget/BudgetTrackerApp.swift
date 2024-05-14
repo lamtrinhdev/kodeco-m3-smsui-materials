@@ -58,7 +58,7 @@ struct ContentView: View {
   @State private var entries: [FinancialEntry] = []
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       List {
         Section(header: Text("Entries")) {
           ForEach(entries) { entry in

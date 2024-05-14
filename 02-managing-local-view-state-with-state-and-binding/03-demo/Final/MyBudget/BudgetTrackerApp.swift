@@ -59,7 +59,7 @@ struct ContentView: View {
   @State private var showingAddView = false
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       List {
         Section(header: Text("Entries")) {
           ForEach(entries) { entry in
