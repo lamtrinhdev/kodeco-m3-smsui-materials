@@ -34,7 +34,11 @@ import SwiftUI
 
 struct EditFinancialEntryView: View {
   var body: some View {
-    Text("Edit Financial Entry View")
+    Form {
+      // TODO: Implement edit form.
+    }
+    .scrollDisabled(true)
+    .navigationTitle("Edit Entry")
   }
 }
 
